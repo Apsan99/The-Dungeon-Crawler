@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tab-Quest</title>
+  <link rel="stylesheet" href="sidepanel.css">
+</head>
+<body>
+  <!-- CLASS SELECT SCREEN -->
+  <div id="class-select" class="screen">
+    <h1>⚔️ TAB-QUEST</h1>
+    <p class="subtitle">The DOM-geon Crawler</p>
+    <p class="choose-text">Choose your class:</p>
+    <div class="class-grid">
+      <button class="class-btn warrior" data-class="warrior">
+        <span class="class-icon">🛡️</span>
+        <span class="class-name">Warrior</span>
+        <span class="class-desc">High HP & defense</span>
+      </button>
+      <button class="class-btn mage" data-class="mage">
+        <span class="class-icon">🔮</span>
+        <span class="class-name">Mage</span>
+        <span class="class-desc">High attack power</span>
+      </button>
+      <button class="class-btn developer" data-class="developer">
+        <span class="class-icon">💻</span>
+        <span class="class-name">Developer</span>
+        <span class="class-desc">Balanced + bonus gold</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- GAME SCREEN -->
+  <div id="game-screen" class="screen hidden">
+    <!-- TABS -->
+    <div class="tab-bar">
+      <button class="tab-btn active" data-tab="battle">⚔️ Battle</button>
+      <button class="tab-btn" data-tab="monsters">👾 Monsters</button>
+      <button class="tab-btn" data-tab="shop">🛒 Shop</button>
+      <button class="tab-btn" data-tab="inventory">🎒 Bag</button>
+    </div>
+
+    <!-- HERO STATS BAR -->
+    <div class="hero-bar">
+      <div class="hero-name-row">
+        <span id="hero-class-icon">🛡️</span>
+        <span id="hero-class-name">Warrior</span>
+        <span class="hero-level">Lv.<span id="hero-level">1</span></span>
+      </div>
+      <div class="stat-bar hp-bar">
+        <div class="bar-label">HP</div>
+        <div class="bar-track"><div id="hp-fill" class="bar-fill hp"></div></div>
+        <div class="bar-text"><span id="hp-current">80</span>/<span id="hp-max">80</span></div>
+      </div>
+      <div class="stat-bar xp-bar">
+        <div class="bar-label">XP</div>
+        <div class="bar-track"><div id="xp-fill" class="bar-fill xp"></div></div>
+        <div class="bar-text"><span id="xp-current">0</span>/<span id="xp-max">100</span></div>
+      </div>
+      <div class="hero-stats-row">
+        <span>⚔️ ATK: <strong id="hero-atk">10</strong></span>
+        <span>🛡️ DEF: <strong id="hero-def">5</strong></span>
+        <span>💰 <strong id="hero-gold">0</strong></span>
+      </div>
+    </div>
+
+    <!-- DEATH OVERLAY -->
+    <div id="death-overlay" class="hidden">
+      <div class="death-content">
+        <h2>💀 LAG CURSE 💀</h2>
+        <p>You have been slain!</p>
+        <p>Respawning in <span id="respawn-timer">10</span>s...</p>
+      </div>
+    </div>
+
+    <!-- BATTLE TAB -->
+    <div id="tab-battle" class="tab-content active">
+      <div class="target-area">
+        <h3>Current Target</h3>
+        <div id="target-info" class="target-card">
+          <p class="no-target">No target selected</p>
+        </div>
+        <button id="attack-btn" class="action-btn">⚔️ ATTACK!</button>
+      </div>
+      <div class="battle-log">
+        <h3>Battle Log</h3>
+        <div id="log-entries"></div>
+      </div>
+    </div>
+
+    <!-- MONSTERS TAB -->
+    <div id="tab-monsters" class="tab-content">
+      <h3>Monsters (Open Tabs)</h3>
+      <div id="monster-list"></div>
+    </div>
+
+    <!-- SHOP TAB -->
+    <div id="tab-shop" class="tab-content">
+      <h3>🛒 Shop</h3>
+      <div id="shop-list"></div>
+    </div>
+
+    <!-- INVENTORY TAB -->
+    <div id="tab-inventory" class="tab-content">
+      <h3>🎒 Inventory</h3>
+      <div class="equipped-section">
+        <h4>Equipped</h4>
+        <div id="equipped-items"></div>
+      </div>
+      <div class="bag-section">
+        <h4>Bag</h4>
+        <div id="bag-items"></div>
+      </div>
+      <button id="reset-btn" class="reset-btn">🗑️ Reset Game</button>
+    </div>
+  </div>
+
+  <script src="sidepanel.js" type="module"></script>
+</body>
+</html>
