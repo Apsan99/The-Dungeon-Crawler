@@ -1,6 +1,6 @@
 {
   "manifest_version": 3,
-  "name": "Tab-Quest: The DOM-geon Crawler",
+  "name": "Hack-Quest: The Dungeon Crawler",
   "version": "1.0.0",
   "description": "Your browser tabs are monsters. Fight them in an RPG side panel!",
   "permissions": ["tabs", "storage", "sidePanel"],
