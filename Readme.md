@@ -85,7 +85,7 @@ extension/
 
 ## How to Play
 
-### Step 1 — Choose Your Class
+### Step 1 Choose Your Class
 
 When you first open Tab-Quest, you'll pick one of three classes:
 
@@ -96,7 +96,7 @@ When you first open Tab-Quest, you'll pick one of three classes:
 
 Your choice is permanent until you reset the game.
 
-### Step 2 — Tabs Become Monsters
+### Step 2 Tabs Become Monsters
 
 Every open browser tab is automatically turned into a monster:
 
@@ -110,7 +110,7 @@ Every open browser tab is automatically turned into a monster:
 - **Closing a tab** → removes that monster
 - **Killing a monster** → the tab **auto-closes** (except your currently active tab)
 
-### Step 3 — Combat
+### Step 3 Combat
 
 Combat runs **automatically**:
 -  **Auto-attack:** Your hero strikes the current target every **4 seconds**
@@ -118,7 +118,7 @@ Combat runs **automatically**:
 -  **Monster retaliation:** After each hit, the monster strikes back. Your DEF reduces incoming damage (minimum 1 damage always gets through)
 -  **Targeting:** When a monster dies, the next one is auto-targeted. Click any monster in the **Monsters** tab to switch targets manually
 
-### Step 4 — Death & The Lag Curse
+### Step 4 Death & The Lag Curse
 
 When your HP hits zero:
 
@@ -127,7 +127,7 @@ When your HP hits zero:
 -  A skull overlay and countdown appears on screen
 -  After 10 seconds, you **respawn at 50% HP** and combat resumes automatically
 
-### Step 5 — Leveling Up
+### Step 5 Leveling Up
 
 Killing monsters grants XP. Required XP follows a quadratic curve:
 
@@ -142,7 +142,7 @@ Each level up gives you:
 -  **Full HP restore**
 -  Permanent boosts to **max HP, ATK, and DEF** (scaled by your class)
 
-### Step 6 — Loot Drops
+### Step 6  Loot Drops
 
 Every monster kill has a chance to drop equipment:
 
@@ -156,17 +156,17 @@ Every monster kill has a chance to drop equipment:
 
 Boss and Elite monsters have **significantly higher drop chances**.
 
-### Step 7 — The Shop
+### Step 7  The Shop
 
 Open the **Shop** tab to spend your gold:
 
-- **Weapons** — Boost your ATK
-- **Armor** — Boost your DEF
+- **Weapons** Boost your ATK
+- **Armor**  Boost your DEF
 - **Health Potions** — Instantly restore HP (consumed immediately on purchase)
 
 All prices **scale with your level** — higher level = better items but higher costs.
 
-### Step 8 — Inventory (Bag)
+### Step 8 Inventory (Bag)
 
 Open the **Bag** tab to manage your gear:
 
