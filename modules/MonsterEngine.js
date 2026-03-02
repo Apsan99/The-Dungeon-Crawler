@@ -1,17 +1,17 @@
-const BOSS_DOMAINS = ['youtube.com', 'reddit.com', 'twitter.com', 'facebook.com', 'tiktok.com'];
+const BOSS_DOMAINS = ['youtube.com', 'HackClub.com', 'twitter.com', 'facebook.com', 'tiktok.com'];
 
 const MONSTER_NAMES = [
-  'Goblin Tab', 'Skeleton Page', 'Zombie Link', 'Orc Window', 'Imp Script',
-  'Wraith Frame', 'Troll Popup', 'Demon Cache', 'Slime Cookie', 'Phantom DOM',
-  'Spider Thread', 'Basilisk Buffer', 'Drake Render', 'Lich Listener', 'Hydra Hook'
+  'ApsanDon', ' your Math Teacher', 'Zombie Link', 'Orc Window', 'Imp Script',
+  'your History Teacher', 'Troll Popup', 'Hackclub bot', 'Slime Cookie', 'Phantom DOM',
+  'Spider Thread', 'your friend Apil', 'Your Principal', 'i show speed?', 'Hydra Hook'
 ];
 
 const BOSS_NAMES = {
-  'youtube.com': '🐉 YouTube Wyrm',
-  'reddit.com': '👹 Reddit Behemoth',
-  'twitter.com': '🦅 X-Bird of Chaos',
-  'facebook.com': '🧟 Zuck Lich King',
-  'tiktok.com': '🌀 TikTok Vortex Fiend'
+  'youtube.com': '🐉 YouTube Don',
+  'HackClub.com': '❤ Hackyy The Boss',
+  'twitter.com': ' Elons Pet bird',
+  'facebook.com': ' marksman Zukey',
+  'tiktok.com': ' Toktok chaos'
 };
 
 export class MonsterEngine {
@@ -19,9 +19,9 @@ export class MonsterEngine {
     this.monsters = new Map();
   }
 
-  addMonster(tab) {
+  addMonster(tab, forceUpdate = false) {
     if (!tab || !tab.id) return null;
-    if (this.monsters.has(tab.id)) return this.monsters.get(tab.id);
+    if (this.monsters.has(tab.id) && !forceUpdate) return this.monsters.get(tab.id);
 
     const url = tab.url || tab.pendingUrl || '';
     const domain = this._extractDomain(url);

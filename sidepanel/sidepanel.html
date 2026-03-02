@@ -7,10 +7,10 @@
   <link rel="stylesheet" href="sidepanel.css">
 </head>
 <body>
-  
+  <!-- CLASS SELECT SCREEN ..-->
   <div id="class-select" class="screen">
-    <h1>⚔️ TAB-QUEST</h1>
-    <p class="subtitle">The DOM-geon Crawler</p>
+    <h1>Hack-QUEST</h1>
+    <p class="subtitle">The Dungeon Crawler</p>
     <p class="choose-text">Choose your class:</p>
     <div class="class-grid">
       <button class="class-btn warrior" data-class="warrior">
@@ -65,12 +65,32 @@
       </div>
     </div>
 
-    
+    <!-- DEATH OVERLAY -->
     <div id="death-overlay" class="hidden">
       <div class="death-content">
         <h2>💀 LAG CURSE 💀</h2>
         <p>You have been slain!</p>
         <p>Respawning in <span id="respawn-timer">10</span>s...</p>
+      </div>
+    </div>
+
+    <!-- KILL OVERLAY -->
+    <div id="kill-overlay" class="hidden">
+      <div class="kill-content">
+        <div class="kill-icon">Hack-Club Smash</div>
+        <div id="kill-monster-name" class="kill-name"></div>
+        <div class="kill-subtitle">SLAIN!</div>
+        <div id="kill-rewards" class="kill-rewards"></div>
+      </div>
+      <div class="kill-particles">
+        <span class="particle">H</span>
+        <span class="particle">A</span>
+        <span class="particle">C</span>
+        <span class="particle">K</span>
+        <span class="particle">C</span>
+        <span class="particle">L</span>
+        <span class="particle">U</span>
+        <span class="particle">B</span>
       </div>
     </div>
 
@@ -81,7 +101,7 @@
         <div id="target-info" class="target-card">
           <p class="no-target">No target selected</p>
         </div>
-        <button id="attack-btn" class="action-btn">⚔️ ATTACK!</button>
+        <button id="attack-btn" class="action-btn"> Smash!</button>
       </div>
       <div class="battle-log">
         <h3>Battle Log</h3>
@@ -89,19 +109,19 @@
       </div>
     </div>
 
-    
+    <!-- MONSTERS TAB -->
     <div id="tab-monsters" class="tab-content">
       <h3>Monsters (Open Tabs)</h3>
       <div id="monster-list"></div>
     </div>
 
-   
+    <!-- SHOP TAB -->
     <div id="tab-shop" class="tab-content">
       <h3>🛒 Shop</h3>
       <div id="shop-list"></div>
     </div>
 
-    
+    <!-- INVENTORY TAB -->
     <div id="tab-inventory" class="tab-content">
       <h3>🎒 Inventory</h3>
       <div class="equipped-section">

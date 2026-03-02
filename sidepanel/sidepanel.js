@@ -2,7 +2,9 @@
 const classSelect = document.getElementById('class-select');
 const gameScreen = document.getElementById('game-screen');
 const deathOverlay = document.getElementById('death-overlay');
-
+const killOverlay = document.getElementById('kill-overlay');
+const killMonsterName = document.getElementById('kill-monster-name');
+const killRewards = document.getElementById('kill-rewards');
 const heroClassIcon = document.getElementById('hero-class-icon');
 const heroClassName = document.getElementById('hero-class-name');
 const heroLevel = document.getElementById('hero-level');
@@ -178,12 +180,12 @@ function updateMonsterList(monsters) {
       if (res.monster) {
         currentTarget = res.monster;
         updateTargetUI(res.monster);
-        
+        // Switch to battle tab
         document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
         document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
         document.querySelector('[data-tab="battle"]').classList.add('active');
         document.getElementById('tab-battle').classList.add('active');
-        
+        // Refresh monster list highlighting
         const state = await send({ action: 'GET_STATE' });
         if (state.monsters) updateMonsterList(state.monsters);
       }
@@ -323,12 +325,37 @@ document.getElementById('reset-btn').addEventListener('click', async () => {
   }
 });
 
+// --- Kill animation ---
+let killTimeout = null;
+function showKillAnimation(monsterName, rewards) {
+  killMonsterName.textContent = monsterName;
+  let rewardText = '';
+  if (rewards) {
+    rewardText = `+${rewards.xp} XP  +${rewards.gold} reward`;
+    if (rewards.loot) rewardText += `  loot${rewards.loot.name}`;
+    if (rewards.leveledUp) rewardText += `  yay LEVEL ${rewards.newLevel}!`;
+  }
+  killRewards.textContent = rewardText;
+  killOverlay.classList.remove('hidden');
+ 
+  killOverlay.style.animation = 'none';
+  killOverlay.offsetHeight; 
+  killOverlay.style.animation = '';
+  if (killTimeout) clearTimeout(killTimeout);
+  killTimeout = setTimeout(() => killOverlay.classList.add('hidden'), 1800);
+}
+
+
 chrome.runtime.onMessage.addListener((msg) => {
   if (msg.type === 'BATTLE_UPDATE') {
     if (msg.heroState) updateHeroUI(msg.heroState);
     if (msg.monster) {
       currentTarget = msg.monster;
       updateTargetUI(msg.monster);
+
+      if (msg.monster.hp <= 0) {
+        showKillAnimation(msg.monster.name, msg.rewards);
+      }
     }
     if (msg.log) addLog(msg.log);
     if (msg.rewards?.leveledUp) {
@@ -358,5 +385,5 @@ async function refreshState() {
 
 setInterval(refreshState, 3000);
 
-// --- Start ---
+
 init();

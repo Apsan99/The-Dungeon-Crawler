@@ -53,10 +53,9 @@ chrome.tabs.onRemoved.addListener((tabId) => {
 
 chrome.tabs.onUpdated.addListener((tabId, changeInfo, tab) => {
   if (changeInfo.status === 'complete') {
-    if (!monsterEngine.getMonster(tabId)) {
-      monsterEngine.addMonster(tab);
-      broadcast({ type: 'MONSTERS_UPDATED', monsters: monsterEngine.getAllMonsters() });
-    }
+    // Always re-create the monster with the real URL (fixes new-tab → actual-site issue)
+    monsterEngine.addMonster(tab, true);
+    broadcast({ type: 'MONSTERS_UPDATED', monsters: monsterEngine.getAllMonsters() });
   }
 });
 
