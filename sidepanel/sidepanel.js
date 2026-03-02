@@ -178,12 +178,12 @@ function updateMonsterList(monsters) {
       if (res.monster) {
         currentTarget = res.monster;
         updateTargetUI(res.monster);
-        // Switch to battle tab
+        
         document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
         document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
         document.querySelector('[data-tab="battle"]').classList.add('active');
         document.getElementById('tab-battle').classList.add('active');
-        // Refresh monster list highlighting
+        
         const state = await send({ action: 'GET_STATE' });
         if (state.monsters) updateMonsterList(state.monsters);
       }
@@ -323,7 +323,6 @@ document.getElementById('reset-btn').addEventListener('click', async () => {
   }
 });
 
-// --- Listen for broadcasts from background ---
 chrome.runtime.onMessage.addListener((msg) => {
   if (msg.type === 'BATTLE_UPDATE') {
     if (msg.heroState) updateHeroUI(msg.heroState);
@@ -344,7 +343,7 @@ chrome.runtime.onMessage.addListener((msg) => {
   }
 });
 
-// --- Periodic refresh ---
+
 async function refreshState() {
   const state = await send({ action: 'GET_STATE' });
   if (state.hero) {
